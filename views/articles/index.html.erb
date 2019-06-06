@@ -1,0 +1,42 @@
+<h1>Listing articles</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div>
+  
+    <div class="col">ID</div>
+    <div class="col">Title</div>
+    <div class="col">Text</div>
+    <div class="col">Date</div>
+
+    <div style="clear:left"></div>
+ 
+  <% @articles.each do |article| %>
+    
+       <div class="col"><%= article.id %></div>
+       <div class="col"><%= article.title %></div>
+       <div class="col"><%= article.text %></div>
+       <div class="col"><%= article.post_by %>
+      <button>  <%= link_to 'Show', article_path(article) %></button>
+        <%= link_to 'Edit', edit_article_path(article) %><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></div>
+              <div style="clear:left"></div>
+    
+  <% end %>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" style="background-color:yellow;">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <div class="col-sm-6" style="background-color:pink;">
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.    
+    </div>
+  </div>
+</div>
