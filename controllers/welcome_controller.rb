@@ -5,7 +5,8 @@ class WelcomeController < ApplicationController
   		pwd = params[:txtpass]
   		@data=Register.where("email = ? AND password = ?",uid,pwd).take
   		if @data!=nil
-  			redirect_to "/articles"
+        session[:us] = uid
+  			redirect_to "/dashboard/index"
   	    else
   	       @error = "invalid userid and password" 		
         end	
